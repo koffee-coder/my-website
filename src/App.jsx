@@ -14,7 +14,7 @@ import Contact from './pages/Contact';
 function App() {
   return (
     <ThemeProvider>
-      <Router>
+      <Router basename="/my-website">
         <div className="App">
           <ParticlesBackground />
           <Header />
