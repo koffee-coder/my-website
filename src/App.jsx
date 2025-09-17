@@ -1,65 +1,35 @@
-// src/App.jsx
-import React, { useContext } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import Bio from './pages/Bio';
-import Work from './pages/Work';
-import Blog from './pages/Blog';
-import Contact from './pages/Contact';
-import Particles from './components/Particles';
-import { ThemeContext } from './context/themeContext';
-import './styles/app.css';
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
 function App() {
-  const { darkMode } = useContext(ThemeContext);
-
-  const particleColors = darkMode
-    ? ['#9f7aea', '#805ad5']
-    : ['#667eea', '#764ba2'];
+  const [count, setCount] = useState(0)
 
   return (
-    <BrowserRouter>
-      <div
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100vw',
-          height: '100vh',
-          zIndex: 0,
-          pointerEvents: 'none',
-        }}
-      >
-        <Particles
-          particleColors={particleColors}
-          particleCount={200}
-          particleSpread={10}
-          speed={0.1}
-          particleBaseSize={100}
-          moveParticlesOnHover={true}
-          particleHoverFactor={1}
-          alphaParticles={false}
-          disableRotation={false}
-        />
+    <>
+      <div>
+        <a href="https://vite.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
       </div>
-
-      <div className="App">
-        <Header />
-        <main className="main-content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/bio" element={<Bio />} />
-            <Route path="/work" element={<Work />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </main>
-        <Footer />
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
       </div>
-    </BrowserRouter>
-  );
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
+  )
 }
 
-export default App;
+export default App
