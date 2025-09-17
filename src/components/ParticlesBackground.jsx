@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { useTheme } from '../contexts/themeContext.js';
+import { useTheme } from '../context/themeContext.jsx';
 
 const ParticlesBackground = () => {
   const canvasRef = useRef(null);
@@ -110,7 +110,7 @@ const ParticlesBackground = () => {
         width: '100%',
         height: '100%',
         zIndex: -1,
-        pointerEvents: 'none'
+        pointerEvents: 'auto'
       }}
     />
   );
