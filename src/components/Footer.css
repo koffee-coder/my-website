@@ -1,6 +1,8 @@
 /* src/components/Footer.css */
 
 .footer {
+  position: relative;     /* create stacking context */
+  z-index: 10;            /* above the particles */
   padding: 2rem;
   background-color: transparent;
   text-align: center;
@@ -10,27 +12,20 @@
   display: inline-flex;
   gap: 2rem;
   align-items: center;
+  position: relative;     /* stacking for the icons */
+  z-index: 11;            /* ensure icons themselves are above */
 }
 
-/* Target links and buttons, including visited and active states */
+/* force white coloring and SVG fill */
 .footer-icons a,
 .footer-icons a:visited,
-.footer-icons a:active,
 .footer-icons .email-button {
-  color: #ffffff ;  /* force white icons */
-  transition: color 2s;
-  background: none;
-  border: none;
-  cursor: pointer;
+  color: #ffffff !important;
+  background: none !important;
+  border: none !important;
+  cursor: pointer !important;
 }
 
-/* Ensure SVG icons use currentColor for their fill */
 .footer-icons svg {
-  fill: currentColor;
-}
-
-/* Hover state */
-.footer-icons a:hover,
-.footer-icons .email-button:hover {
-  color: #bbbbbb;  
+  fill: #ffffff !important;
 }
