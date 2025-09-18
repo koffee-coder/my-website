@@ -18,7 +18,7 @@ const ParticlesBackground = () => {
       options={{
         background: {
           color: {
-            value: 'transparent'  // Make sure the canvas background is transparent
+            value: '#000000'  // black background
           }
         },
         fpsLimit: 60,
@@ -31,7 +31,14 @@ const ParticlesBackground = () => {
             }
           },
           color: {
-            value: '#ffffff'
+            value: '#800080'  // purple particles
+          },
+          links: {
+            color: '#800080',
+            enable: true,
+            distance: 150,
+            opacity: 0.4,
+            width: 1
           },
           shape: {
             type: 'circle'
@@ -40,7 +47,7 @@ const ParticlesBackground = () => {
             value: 0.5
           },
           size: {
-            value: { min: 1, max: 5 }
+            value: { min: 3, max: 8 }  // increased particle size
           },
           move: {
             enable: true,
@@ -69,7 +76,8 @@ const ParticlesBackground = () => {
               quantity: 4
             }
           }
-        }
+        },
+        detectRetina: true
       }}
     />
   );

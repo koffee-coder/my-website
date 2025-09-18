@@ -1,18 +1,36 @@
-.footer {
-  background-color: #f8f9fa;
-  border-top: 1px solid #e9ecef;
-  margin-top: auto;
-}
+/* src/components/Footer.css */
 
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
+.footer {
+  padding: 2rem;
+  background-color: transparent;
   text-align: center;
 }
 
-.footer-content p {
-  margin: 0;
-  color: #6c757d;
-  font-size: 0.9rem;
+.footer-icons {
+  display: inline-flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+/* Target links and buttons, including visited and active states */
+.footer-icons a,
+.footer-icons a:visited,
+.footer-icons a:active,
+.footer-icons .email-button {
+  color: #ffffff ;  /* force white icons */
+  transition: color 2s;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Ensure SVG icons use currentColor for their fill */
+.footer-icons svg {
+  fill: currentColor;
+}
+
+/* Hover state */
+.footer-icons a:hover,
+.footer-icons .email-button:hover {
+  color: #bbbbbb;  
 }
