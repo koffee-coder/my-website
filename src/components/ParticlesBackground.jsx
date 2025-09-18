@@ -1,29 +1,74 @@
 // src/components/ParticlesBackground.jsx
+
 import React from 'react';
 import Particles from 'react-tsparticles';
 import { loadFull } from 'tsparticles';
 import './ParticlesBackground.css';
 
 const ParticlesBackground = () => {
-  const particlesInit = async engine => {
-    // load the full tsparticles bundle
+  const particlesInit = async (engine) => {
+    // Load the full tsparticles bundle
     await loadFull(engine);
   };
 
   return (
     <Particles
+      id="tsparticles"
       init={particlesInit}
       options={{
-        fullScreen: {
-          enable: true,
-          zIndex: -1   // behind everything
+        background: {
+          color: {
+            value: 'transparent'  // Make sure the canvas background is transparent
+          }
         },
+        fpsLimit: 60,
         particles: {
-          number: { value: 100 },
-          color: { value: '#ffffff30' },
-          shape: { type: 'circle' },
-          size: { value: 2 },
-          move: { enable: true, speed: 0.5 }
+          number: {
+            value: 80,
+            density: {
+              enable: true,
+              area: 800
+            }
+          },
+          color: {
+            value: '#ffffff'
+          },
+          shape: {
+            type: 'circle'
+          },
+          opacity: {
+            value: 0.5
+          },
+          size: {
+            value: { min: 1, max: 5 }
+          },
+          move: {
+            enable: true,
+            speed: 2,
+            outModes: {
+              default: 'bounce'
+            }
+          }
+        },
+        interactivity: {
+          events: {
+            onHover: {
+              enable: true,
+              mode: 'repulse'
+            },
+            onClick: {
+              enable: true,
+              mode: 'push'
+            }
+          },
+          modes: {
+            repulse: {
+              distance: 100
+            },
+            push: {
+              quantity: 4
+            }
+          }
         }
       }}
     />

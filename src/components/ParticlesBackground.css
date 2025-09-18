@@ -1,10 +1,11 @@
 /* src/components/ParticlesBackground.css */
-canvas {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  z-index: -1 !important;
-  pointer-events: none !important;
+
+#tsparticles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;           /* Above page background but below content */
+  pointer-events: none; /* Allow clicks through the canvas */
 }
