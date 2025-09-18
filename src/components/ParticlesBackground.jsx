@@ -31,14 +31,10 @@ const ParticlesBackground = () => {
             }
           },
           color: {
-            value: '#EBC3DB'  // purple particles
+            value: '#800080'  // purple particles
           },
           links: {
-            color: '#EBC3DB',
-            enable: true,
-            distance: 150,
-            opacity: 0.4,
-            width: 1
+            enable: false   // disable connecting lines
           },
           shape: {
             type: 'circle'
