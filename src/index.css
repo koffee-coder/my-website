@@ -1,9 +1,12 @@
 body {
   font-family: system-ui, sans-serif;
   margin: 0;
-  padding: 2rem;
-  background: #f0f0f0;
+  padding: 0;             /* No padding */
+  background: #000000;    /* Black background */
+  overflow: hidden;
 }
+
+/* rest unchanged */
 .logo {
   height: 6rem;
   padding: 1.5rem;

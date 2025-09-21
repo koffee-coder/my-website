@@ -5,7 +5,7 @@ import Particles from 'react-tsparticles';
 export default function Background() {
   const options = {
     background: {
-      color: { value: "#000000" }
+      color: { value: "#0096FF " }
     },
     fpsLimit: 60,
     interactivity: {
