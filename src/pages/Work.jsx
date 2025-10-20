@@ -25,7 +25,7 @@ export default function Work() {
           enableTilt={true}
           enableMagnetism={true}
           clickEffect={true}
-          spotlightRadius={300}
+          spotlightRadius={500}
           particleCount={12}
           glowColor="132, 0, 255"
         />

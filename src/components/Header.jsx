@@ -61,4 +61,5 @@ const navLinkStyle = {
   textDecoration: 'none',
   fontWeight: '500',
   cursor: 'pointer',
+  fontSize: '1.55rem', // Increased font size
 };

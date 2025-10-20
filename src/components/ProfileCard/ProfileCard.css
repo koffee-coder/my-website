@@ -16,7 +16,7 @@
   max-height: 540px;
   border-radius: var(--card-radius, 30px);
   box-shadow: 0 4px 32px 0 rgba(0,0,0,0.7), 0 0 8px 2px #3d90ff;
-  border: 2px solid rgba(61, 144, 255, 0.25);
+  border: 2px solid #FDB515;    /* changed to gold */
   overflow: hidden;
   transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
   transform: translate3d(0, 0, 0.1px)
@@ -43,7 +43,7 @@
 .pc-details-bottom {
   width: 100%;
   text-align: center;
-  margin-top: 8em; /* <-- pushes text further down */
+  margin-top: 8em; /* pushes text further down */
   margin-bottom: 0em;
 }
 
