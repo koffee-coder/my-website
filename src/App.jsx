@@ -6,6 +6,7 @@ import { loadFull } from "tsparticles";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ProfileCard from "./components/ProfileCard/ProfileCard.jsx";
+import BlurText from "./components/BlurText.jsx";
 
 import Work from "./pages/Work";
 import Bio from "./pages/Bio";
@@ -19,16 +20,44 @@ function Home() {
     <div className="home-2column">
       <div className="home-message">
         <div className="home-message-content">
-          Hi, Welcome to my personal website.<br /><br />
-          My name is Pratyosh Desaraju. I am a Senior Engineer at Liberty Mutual.<br /><br />
-          Check out the work or bio to learn more about me.<br /><br />
-          You can also connect with me on LinkedIn or read what I have been writing on Medium using the links below.
+          <BlurText
+            text="Hi, Welcome to my personal website."
+            delay={40}
+            stepDuration={0.18}
+            animateBy="words"
+            direction="top"
+            className="text-2xl mb-6"
+          />
+          <BlurText
+            text="My name is Pratyosh Desaraju. I am a Senior Engineer at Liberty Mutual Insurance Group."
+            delay={40}
+            stepDuration={0.18}
+            animateBy="words"
+            direction="top"
+            className="text-2xl mb-6"
+          />
+          <BlurText
+            text="Check out the work or bio to learn more about me."
+            delay={40}
+            stepDuration={0.18}
+            animateBy="words"
+            direction="top"
+            className="text-2xl mb-6"
+          />
+          <BlurText
+            text="You can also connect with me on LinkedIn or read what I have been writing on Medium using the links below."
+            delay={40}
+            stepDuration={0.18}
+            animateBy="words"
+            direction="top"
+            className="text-2xl"
+          />
         </div>
       </div>
       <div className="home-profilecard">
         <ProfileCard
           avatarUrl={pratyoshPic}
-          name="Pratyosh"
+          name="Pratyosh Desaraju"
           title="Senior Software Engineer"
           status="Online"
         />

@@ -3,7 +3,7 @@ import './ProfileCard.css';
 
 const ProfileCardComponent = ({
   avatarUrl,
-  name = 'Pratyosh',
+  name = 'PRATYOSH DESARAJU',
   title = 'Senior Software Engineer',
   status = 'Online'
 }) => {
