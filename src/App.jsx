@@ -20,22 +20,49 @@ function Home() {
     <div className="home-2column">
       <div className="home-message">
         <div className="home-message-content">
-          <BlurText
-            text="Hi, Welcome to my personal website."
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <BlurText
+              text="Hi there,"
+              delay={40}
+              stepDuration={0.18}
+              animateBy="words"
+              direction="top"
+              className="text-2xl mb-6"
+            />
+            <span className="wave-emoji" style={{ fontSize: "2em", marginLeft: "0.4em" }}>
+              👋🏼
+            </span>
+          </div>
+          <div className="text-2xl mb-6" style={{ display: 'flex', alignItems: 'center' }}>
+            <span style={{ fontWeight: 400 }}>
+              <BlurText
+                text="I am"
+                delay={40}
+                stepDuration={0.18}
+                animateBy="words"
+                direction="top"
+                className=""
+              />
+            </span>
+            <span style={{ color: "#FDB515", marginLeft: "0.5em", fontWeight: 600 }}>
+              <BlurText
+                text="Pratyosh Desaraju"
+                delay={40}
+                stepDuration={0.18}
+                animateBy="words"
+                direction="top"
+                className=""
+              />
+            </span>
+          </div>
+          {/* <BlurText
+            text="I am a Senior Engineer at Liberty Mutual Insurance Group."
             delay={40}
             stepDuration={0.18}
             animateBy="words"
             direction="top"
             className="text-2xl mb-6"
-          />
-          <BlurText
-            text="My name is Pratyosh Desaraju. I am a Senior Engineer at Liberty Mutual Insurance Group."
-            delay={40}
-            stepDuration={0.18}
-            animateBy="words"
-            direction="top"
-            className="text-2xl mb-6"
-          />
+          /> */}
           <BlurText
             text="Check out the work or bio to learn more about me."
             delay={40}

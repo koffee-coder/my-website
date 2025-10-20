@@ -66,6 +66,7 @@ const ProfileCardComponent = ({
           <div className="pc-details-bottom">
             <h3>{name}</h3>
             <p>{title}</p>
+            <p className="pc-company">Liberty Mutual Insurance Group</p>
           </div>
           <div className="pc-status-bottom">
             <span className="pc-status-dot" />

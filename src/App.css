@@ -70,3 +70,20 @@
 .mb-8 {
   margin-bottom: 2rem;
 }
+
+.wave-emoji {
+  display: inline-block;
+  animation: waveHand 1.6s infinite;
+  transform-origin: 70% 70%;
+}
+
+@keyframes waveHand {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(16deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(16deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(16deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
