@@ -2,14 +2,34 @@ import { useCallback } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
+
 import Header from "./components/Header";
-import Footer from "./components/Footer"; // Import Footer
+import Footer from "./components/Footer";
+import ProfileCard from "./components/ProfileCard/ProfileCard.jsx";
 
 import Work from "./pages/Work";
 import Bio from "./pages/Bio";
 import Contact from "./pages/Contact";
 
 import "./App.css";
+
+// Import profile picture
+import pratyoshPic from "./assets/pratyosh_desaraju.png";
+
+function Home() {
+  return (
+    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "80vh" }}>
+      <ProfileCard
+        avatarUrl={pratyoshPic}
+        miniAvatarUrl={pratyoshPic}
+        name="Pratyosh"
+        title="Senior Software Engineer"
+        status="Online"
+        showUserInfo={true}
+      />
+    </div>
+  );
+}
 
 function App() {
   const particlesInit = useCallback(async (engine) => {
@@ -26,7 +46,7 @@ function App() {
           left: 0,
           width: "100%",
           height: "100%",
-          zIndex: 0
+          zIndex: 0,
         }}
       >
         <Particles
@@ -67,15 +87,6 @@ function App() {
                 random: false,
                 straight: false,
                 outModes: { default: "out" },
-                orbit: {
-                  enable: true,
-                  radius: 200,
-                  rotation: {
-                    value: 0,
-                    direction: "clockwise",
-                    animation: { enable: true, speed: 0.1 },
-                  },
-                },
               },
             },
             detectRetina: true,
@@ -86,27 +97,28 @@ function App() {
 
       <Header />
 
-      <main style={mainStyle}>
+      <main
+        style={{
+          position: "relative",
+          zIndex: 5,
+          paddingTop: "120px",
+          minHeight: "100vh",
+          background: "none",
+          color: "#fff",
+          boxSizing: "border-box",
+        }}
+      >
         <Routes>
-          <Route path="/" element={<Work />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/work" element={<Work />} />
           <Route path="/bio" element={<Bio />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
 
-      <Footer /> {/* Add Footer here */}
+      <Footer />
     </Router>
   );
 }
-
-const mainStyle = {
-  position: "relative",
-  zIndex: 5,
-  paddingTop: "120px",
-  minHeight: "100vh",
-  background: "none",
-  color: "#fff",
-  boxSizing: "border-box",
-};
 
 export default App;

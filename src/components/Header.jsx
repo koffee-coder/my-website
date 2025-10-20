@@ -10,7 +10,7 @@ export default function Header() {
       </Link>
       <nav>
         <ul style={navListStyle}>
-          <li style={navItemStyle}><Link to="/" style={navLinkStyle}>Work</Link></li>
+          <li style={navItemStyle}><Link to="/work" style={navLinkStyle}>Work</Link></li>
           <li style={navItemStyle}><Link to="/bio" style={navLinkStyle}>Bio</Link></li>
           <li style={navItemStyle}><Link to="/contact" style={navLinkStyle}>Contact</Link></li>
         </ul>
