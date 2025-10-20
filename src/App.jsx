@@ -12,21 +12,27 @@ import Bio from "./pages/Bio";
 import Contact from "./pages/Contact";
 
 import "./App.css";
-
-// Import profile picture
 import pratyoshPic from "./assets/pratyosh_desaraju.png";
 
 function Home() {
   return (
-    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "80vh" }}>
-      <ProfileCard
-        avatarUrl={pratyoshPic}
-        miniAvatarUrl={pratyoshPic}
-        name="Pratyosh"
-        title="Senior Software Engineer"
-        status="Online"
-        showUserInfo={true}
-      />
+    <div className="home-2column">
+      <div className="home-message">
+        <div className="home-message-content">
+          Hi, Welcome to my personal website.<br /><br />
+          My name is Pratyosh Desaraju. I am a Senior Engineer at Liberty Mutual.<br /><br />
+          Check out the work or bio to learn more about me.<br /><br />
+          You can also connect with me on LinkedIn or read what I have been writing on Medium using the links below.
+        </div>
+      </div>
+      <div className="home-profilecard">
+        <ProfileCard
+          avatarUrl={pratyoshPic}
+          name="Pratyosh"
+          title="Senior Software Engineer"
+          status="Online"
+        />
+      </div>
     </div>
   );
 }
