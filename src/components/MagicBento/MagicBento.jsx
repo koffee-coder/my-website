@@ -10,14 +10,14 @@ const MOBILE_BREAKPOINT = 768;
 const cardData = [
   {
     area: "top-left",
-    color: "#060010",
+    color: "transparent",
     title: "Liberty Mutual Insurance Group",
     label: "Where I work",
     description: "Previously @ The Home Depot"
   },
   // {
   //   area: "top-right",
-  //   color: "#060010",
+  //   color: "transparent",
   //   title: "",
   //   label: "Memberships/Achievements",
   //   list: [
@@ -32,14 +32,14 @@ const cardData = [
   // },
   // {
   //   area: "bottom-left",
-  //   color: "#060010",
+  //   color: "transparent",
   //   title: "Collaboration & Automation",
   //   label: "Research Papers/Conference Papers",
   //   description: "Work together seamlessly & streamline workflows"
   // },
   // {
   //   area: "bottom-right",
-  //   color: "#060010",
+  //   color: "transparent",
   //   title: "Integration & Security",
   //   label: "Patents",
   //   description: "Connect favorite tools & enterprise-grade protection"
