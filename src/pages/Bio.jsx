@@ -9,21 +9,21 @@ const steps = [
     year: '2013',
     text: 'Moved to USA in 2013',
     image: moveUSAImg,
-    description: 'I made the bold decision to move to the United States to pursue higher education and career opportunities. This was a transformative moment that opened doors to new experiences and challenges. Adapting to a new culture and environment helped me grow both personally and professionally. It marked the beginning of an exciting journey in the tech industry.',
+    description: 'Moved to USA in 2013',
   },
   {
     id: 2,
     year: '2015',
-    text: 'Completed Masters in CS',
+    text: 'Completed Masters in Computer Science',
     image: mastersImg,
-    description: 'I earned my Master\'s degree in Computer Science, deepening my knowledge in software engineering and algorithms. The rigorous coursework and research projects enhanced my technical skills significantly. I collaborated with talented peers and professors on cutting-edge projects. This achievement laid a strong foundation for my career in technology.',
+    description: 'Completed Masters in Computer Science',
   },
   {
     id: 3,
     year: '2015',
     text: 'Started working as an Engineer',
     image: engineerImg,
-    description: 'I began my professional career as a software engineer, applying my academic knowledge to real-world problems. Working on diverse projects helped me understand the industry\'s best practices and workflows. I developed solutions that impacted users and contributed to business goals. This role marked the start of my journey as a senior software engineer.',
+    description: 'Started working as an Engineer',
   },
 ];
 

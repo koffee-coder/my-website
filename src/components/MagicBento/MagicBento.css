@@ -27,7 +27,7 @@
 .card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   position: relative;
   min-height: 120px;
   width: 100%;
@@ -232,4 +232,12 @@
 .card__list li {
   margin-bottom: 0.35em;
   line-height: 1.3;
+}
+
+.card__secondary-label {
+  font-size: 18px;
+  font-weight: 700;
+  color: #FDB515;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
 }
