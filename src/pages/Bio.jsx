@@ -31,8 +31,8 @@ export default function Bio() {
   const [hoveredStep, setHoveredStep] = useState(null);
 
   return (
-    <section style={containerStyle} aria-label="Bio timeline">
-      <h2 style={headingStyle}>Bio Timeline</h2>
+    <section style={containerStyle} aria-label="A quick bio">
+      <h2 style={headingStyle}>Quick Bio</h2>
       <div style={timelineStyle}>
         {steps.map((step) => (
           <div
@@ -86,10 +86,10 @@ const timelineStyle = {
   justifyContent: 'space-evenly',
   position: 'relative',
   paddingLeft: '30px',
-  borderLeft: '3px solid #888',
+  borderLeft: '3px solid white',
   marginTop: '40px',
   height: '400px',
-  marginLeft: '80px',  // Space for years on the left
+  marginLeft: '80px',
 };
 
 const stepContainerStyle = {
@@ -100,8 +100,8 @@ const stepContainerStyle = {
 
 const yearStyle = {
   position: 'absolute',
-  left: '-110px',  // Position to the left of the vertical line
-  color: '#00aaff',
+  left: '-110px',
+  color: '#FDB515',
   fontSize: '1.2rem',
   fontWeight: 'bold',
 };
@@ -125,8 +125,8 @@ const circleStyle = (isActive) => ({
   width: '20px',
   height: '20px',
   borderRadius: '50%',
-  backgroundColor: isActive ? '#00aaff' : '#555',
-  border: isActive ? '3px solid #00aaff' : '3px solid #555',
+  backgroundColor: isActive ? '#FDB515' : '#555',
+  border: isActive ? '3px solid #FDB515' : '3px solid #555',
   flexShrink: 0,
   transition: 'all 0.3s ease',
 });
@@ -149,8 +149,8 @@ const descriptionStyle = {
   left: '550px',
   top: '50%',
   transform: 'translateY(-50%)',
-  backgroundColor: 'rgba(0, 170, 255, 0.1)',
-  border: '1px solid rgba(0, 170, 255, 0.3)',
+  backgroundColor: 'rgba(253, 181, 21, 0.1)',
+  border: '1px solid rgba(253, 181, 21, 0.3)',
   borderRadius: '8px',
   padding: '15px 20px',
   maxWidth: '400px',
