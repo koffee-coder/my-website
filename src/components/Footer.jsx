@@ -3,8 +3,16 @@ import { TiSocialLinkedinCircular } from 'react-icons/ti';
 import { AiFillMediumCircle } from 'react-icons/ai';
 import { MdOutlineAlternateEmail } from 'react-icons/md';
 
+const HOVER_COLOR = '#FDB515';
+const DEFAULT_COLOR = '#fff';
+
 export default function Footer() {
   const [showCopied, setShowCopied] = useState(false);
+  const [hovered, setHovered] = useState({
+    linkedin: false,
+    medium: false,
+    email: false,
+  });
 
   const handleEmailCopy = () => {
     const email = 'your-email@example.com'; // Replace with your actual email
@@ -22,26 +30,47 @@ export default function Footer() {
           rel="noopener noreferrer"
           style={iconLinkStyle}
           aria-label="LinkedIn Profile"
+          onMouseEnter={() => setHovered(h => ({ ...h, linkedin: true }))}
+          onMouseLeave={() => setHovered(h => ({ ...h, linkedin: false }))}
         >
-          <TiSocialLinkedinCircular style={iconStyle} />
+          <TiSocialLinkedinCircular
+            style={{
+              ...iconStyle,
+              color: hovered.linkedin ? HOVER_COLOR : DEFAULT_COLOR,
+            }}
+          />
         </a>
 
         <a
-          href="https://medium.com/@pratyosh.desaraju/"
+          href="https://medium.com/@pratyoshdesaraju/"
           target="_blank"
           rel="noopener noreferrer"
           style={iconLinkStyle}
           aria-label="Medium Profile"
+          onMouseEnter={() => setHovered(h => ({ ...h, medium: true }))}
+          onMouseLeave={() => setHovered(h => ({ ...h, medium: false }))}
         >
-          <AiFillMediumCircle style={iconStyle} />
+          <AiFillMediumCircle
+            style={{
+              ...iconStyle,
+              color: hovered.medium ? HOVER_COLOR : DEFAULT_COLOR,
+            }}
+          />
         </a>
 
         <button
           onClick={handleEmailCopy}
           style={iconButtonStyle}
           aria-label="Copy Email"
+          onMouseEnter={() => setHovered(h => ({ ...h, email: true }))}
+          onMouseLeave={() => setHovered(h => ({ ...h, email: false }))}
         >
-          <MdOutlineAlternateEmail style={iconStyle} />
+          <MdOutlineAlternateEmail
+            style={{
+              ...iconStyle,
+              color: hovered.email ? HOVER_COLOR : DEFAULT_COLOR,
+            }}
+          />
         </button>
       </div>
 
@@ -71,7 +100,6 @@ const iconsContainerStyle = {
 };
 
 const iconLinkStyle = {
-  color: '#fff',
   textDecoration: 'none',
   transition: 'color 0.3s ease, transform 0.3s ease',
   cursor: 'pointer',
@@ -80,7 +108,6 @@ const iconLinkStyle = {
 const iconButtonStyle = {
   background: 'none',
   border: 'none',
-  color: '#fff',
   cursor: 'pointer',
   padding: 0,
   transition: 'color 0.3s ease, transform 0.3s ease',

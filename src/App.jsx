@@ -85,7 +85,7 @@ function Home() {
         <ProfileCard
           avatarUrl={pratyoshPic}
           name="Pratyosh Desaraju"
-          title="Senior Software Engineer"
+          title="Senior Engineer"
           status="Online"
         />
       </div>

@@ -4,7 +4,7 @@ import './ProfileCard.css';
 const ProfileCardComponent = ({
   avatarUrl,
   name = 'PRATYOSH DESARAJU',
-  title = 'Senior Software Engineer',
+  title = 'Senior Engineer',
   status = 'Online'
 }) => {
   const wrapRef = useRef(null);

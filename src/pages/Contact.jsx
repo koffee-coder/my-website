@@ -20,17 +20,17 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     // Create mailto link with form data
-    const mailtoLink = `mailto:contact@pratyoshdesaraju.com=Contact from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(
+    const mailtoLink = `mailto:contact@pratyoshdesaraju.com?subject=Contact from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
     )}`;
-    
+
     window.location.href = mailtoLink;
-    
+
     // Show success message
     setStatus('Opening your email client...');
-    
+
     // Reset form
     setTimeout(() => {
       setFormData({ name: '', email: '', message: '' });
@@ -123,14 +123,15 @@ export default function Contact() {
   );
 }
 
+// Reduced top and bottom padding for less gap above the form
 const containerStyle = {
   minHeight: '100vh',
   maxHeight: '100vh',
   width: '100vw',
-  padding: '100px 20px 120px 20px',  // Increased top and bottom padding
+  padding: '40px 20px 60px 20px',  // Reduced top/bottom padding
   display: 'flex',
   justifyContent: 'center',
-  alignItems: 'flex-start',  // Moved to top instead of center
+  alignItems: 'flex-start',
   boxSizing: 'border-box',
   overflow: 'hidden',
 };
@@ -140,14 +141,14 @@ const contentStyle = {
   width: '100%',
   display: 'flex',
   flexDirection: 'column',
-  gap: '20px',
+  gap: '14px', // Slightly less gap between sections
 };
 
 const titleStyle = {
   fontSize: '2rem',
   color: '#fff',
   textAlign: 'center',
-  marginBottom: '5px',
+  marginBottom: '0px', // Reduce/remove bottom margin
 };
 
 const socialLinksStyle = {
