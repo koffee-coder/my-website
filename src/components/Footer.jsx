@@ -42,7 +42,7 @@ export default function Footer() {
         </a>
 
         <a
-          href="https://medium.com/@pratyoshdesaraju/"
+          href="https://medium.com/@pratyosh.desaraju/"
           target="_blank"
           rel="noopener noreferrer"
           style={iconLinkStyle}
