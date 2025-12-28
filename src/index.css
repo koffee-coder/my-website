@@ -1,33 +1,37 @@
-body {
-  font-family: system-ui, sans-serif;
-  margin: 0;
-  padding: 0;             /* No padding */
-  background: #000000;    /* Black background */
-  overflow: hidden;
+html {
+  height: -webkit-fill-available;
 }
 
-/* rest unchanged */
-.logo {
-  height: 6rem;
-  padding: 1.5rem;
-  will-change: filter;
-  transition: filter 300ms;
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  
+  /* Theme-aware backgrounds */
+  background: var(--bg-primary, #000000);
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+[data-theme="dark"] {
+  --bg-primary: #000000;
+  --text-primary: #ffffff;
+  --text-secondary: #f7f7f7;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-secondary: #374151;
+  color: var(--text-primary);
 }
-.card {
-  padding: 2rem;
-  border-radius: 10px;
-  background: white;
-  box-shadow: 0 0 10px #ccc;
-  margin-top: 2rem;
-  max-width: 300px;
+
+.page-content {
+  padding-bottom: 140px; /* Safe footer space */
 }
-.read-the-docs {
-  font-size: 1.4rem;
-  color: #444;
+
+@supports (padding: max(0px)) {
+  .page-content {
+    padding-bottom: max(140px, env(safe-area-inset-bottom));
+  }
 }

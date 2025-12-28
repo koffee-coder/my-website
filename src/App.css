@@ -1,3 +1,4 @@
+/* App.css */
 .home-2column {
   display: flex;
   flex-direction: row;
@@ -25,6 +26,10 @@
   font-size: 1.3em;
   line-height: 1.5em;
   font-weight: 400;
+}
+
+/* Dark mode (default) */
+.home-message-content.dark {
   color: #f7f7f7;
   background: transparent;
   padding: 24px 12px;
@@ -33,10 +38,21 @@
   z-index: 7;
 }
 
+/* Light mode */
+.home-message-content.light {
+  color: #1a1a1a;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 24px 12px;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  z-index: 7;
+}
+
 .home-profilecard {
   display: flex;
   flex-direction: column;
-  align-items: flex-end; 
+  align-items: flex-end;
   justify-content: flex-start;
   height: 100%;
   min-width: 370px;
@@ -44,31 +60,13 @@
   z-index: 6;
 }
 
-/* Responsive styles */
-@media (max-width: 900px) {
-  .home-2column {
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-    padding-top: 32px;
-  }
-  .home-message {
-    margin-left: 0;
-    min-height: unset;
-    max-width: 570px;
-    justify-content: center;
-  }
-  .home-profilecard {
-    margin-right: 0;
-    min-width: 0;
-  }
-}
-
+/* Text classes */
 .text-2xl {
   font-size: 2rem;
 }
-.mb-8 {
-  margin-bottom: 2rem;
+
+.mb-6 {
+  margin-bottom: 1.5rem;
 }
 
 .wave-emoji {
@@ -86,4 +84,26 @@
   50% { transform: rotate(16deg); }
   60% { transform: rotate(0deg); }
   100% { transform: rotate(0deg); }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .home-2column {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding-top: 32px;
+  }
+  
+  .home-message {
+    margin-left: 0;
+    min-height: unset;
+    max-width: 570px;
+    justify-content: center;
+  }
+  
+  .home-profilecard {
+    margin-right: 0;
+    min-width: 0;
+  }
 }

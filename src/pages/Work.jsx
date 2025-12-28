@@ -1,25 +1,53 @@
-import MagicBento from "../components/MagicBento/MagicBento.jsx";
-import '../components/MagicBento/MagicBento.css';
+import React from 'react'
+import MagicBento from '../components/MagicBento/MagicBento.jsx'
+import '../components/MagicBento/MagicBento.css'
 
-export default function Work() {
+const Work = ({ theme }) => {
+  const isDark = theme === 'dark'
+  const glowColor = isDark ? '132, 0, 255' : '139, 92, 246'
+
   return (
-    <section 
-      style={{
+    <div style={{
+      padding: '0 8vw 140px', // Extra bottom padding
+      minHeight: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      color: isDark ? '#ffffff' : '#000000',
+      background: 'transparent',
+      width: '100vw',
+      boxSizing: 'border-box',
+      overflow: 'hidden'
+    }}>
+      <h1 style={{
+        fontSize: '3.5rem',
+        fontWeight: 700,
+        marginBottom: '3rem',
+        textAlign: 'center',
+        color: isDark ? '#ffffff' : '#1a1a1a',
+        zIndex: 10,
+        position: 'relative',
+        marginTop: '2rem'
+      }}>
+        Work
+      </h1>
+      <section style={{
         margin: 0,
         padding: 0,
-        minHeight: 'calc(100vh - 120px)', // Reduce 120px for header/footer
+        flex: 1,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        width: '100vw',
+        width: '100%',
+        maxWidth: '1100px',
+        height: '100%',
         boxSizing: 'border-box',
         overflow: 'hidden'
-      }}
-    >
-      <div style={{ width: '100%', maxWidth: '1100px', height: '100%' }}>
+      }}>
         <MagicBento
           textAutoHide={true}
-          enableStars={true}
+          enableStars={false}        // ← FIXED: Removed purple oval
           enableSpotlight={true}
           enableBorderGlow={true}
           enableTilt={true}
@@ -27,9 +55,12 @@ export default function Work() {
           clickEffect={true}
           spotlightRadius={500}
           particleCount={12}
-          glowColor="132, 0, 255"
+          glowColor={glowColor}
+          data-theme={theme}
         />
-      </div>
-    </section>
-  );
+      </section>
+    </div>
+  )
 }
+
+export default Work
