@@ -26,6 +26,10 @@ const cardData = [
         href: "https://scrs.in/scrs-fellow/1226"
       },
       {
+        text: "IEEE Senior Member",
+        href: "https://ieee-collabratec.ieee.org/app/p/pratyoshdesaraju"
+      },
+      {
         text: "Claro Awards winner 2025"
       }
     ]

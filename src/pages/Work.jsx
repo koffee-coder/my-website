@@ -30,7 +30,6 @@ const Work = ({ theme }) => {
         position: 'relative',
         marginTop: '2rem'
       }}>
-        Work
       </h1>
       <section style={{
         margin: 0,
