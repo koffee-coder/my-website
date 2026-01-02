@@ -1,4 +1,5 @@
 /* ProfileCard.css - FIXED Light Mode Text Visibility */
+
 :root {
   --card-radius: 30px;
 }
@@ -46,15 +47,7 @@
   color: #ffd580;
 }
 
-.pc-card-dark .pc-status-bottom {
-  color: #66ffb4;
-}
-
-.pc-card-dark .pc-status-dot {
-  background: #66ffb4;
-}
-
-/* FIXED Light mode card - DARKER TEXT COLORS */
+/* Light mode card - ALL WHITE TEXT */
 .pc-card-light {
   box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.15), 0 0 8px 2px #FDB515;
   border: 2px solid #333;
@@ -63,23 +56,15 @@
 }
 
 .pc-card-light .pc-details-bottom h3 {
-  color: #1a1a1a !important; /* Dark black */
+  color: #ffffff !important; /* WHITE NAME */
 }
 
 .pc-card-light .pc-details-bottom p {
-  color: #374151 !important; /* Dark gray */
+  color: #ffffff !important; /* WHITE TITLE */
 }
 
 .pc-card-light .pc-company {
-  color: #b45309 !important; /* Darker orange */
-}
-
-.pc-card-light .pc-status-bottom {
-  color: #047857 !important; /* Darker green */
-}
-
-.pc-card-light .pc-status-dot {
-  background: #047857 !important; /* Darker green */
+  color: #ffffff !important; /* WHITE COMPANY */
 }
 
 /* Bottom section (shared) */
@@ -124,22 +109,13 @@
   letter-spacing: 0.02em;
 }
 
+/* REMOVE STATUS INDICATOR ENTIRELY */
 .pc-status-bottom {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5em;
-  font-size: 1.12em;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
-  z-index: 2;
+  display: none;
 }
 
 .pc-status-dot {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  margin-right: 0.3em;
-  display: inline-block;
+  display: none;
 }
 
 /* Responsive */
@@ -150,7 +126,7 @@
     max-height: 450px;
     height: 70svh;
   }
-  
+
   .pc-details-bottom h3 {
     font-size: min(4svh, 2em);
   }
@@ -163,7 +139,7 @@
     max-height: 340px;
     height: 58svh;
   }
-  
+
   .pc-details-bottom h3 {
     font-size: min(3.2svh, 1.2em);
   }

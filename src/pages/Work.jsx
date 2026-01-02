@@ -8,7 +8,7 @@ const Work = ({ theme }) => {
 
   return (
     <div style={{
-      padding: '0 8vw 140px', // Extra bottom padding
+      padding: '0 8vw 140px', 
       minHeight: '100vh',
       display: 'flex',
       flexDirection: 'column',
@@ -47,7 +47,7 @@ const Work = ({ theme }) => {
       }}>
         <MagicBento
           textAutoHide={true}
-          enableStars={false}        // ← FIXED: Removed purple oval
+          enableStars={false}        
           enableSpotlight={true}
           enableBorderGlow={true}
           enableTilt={true}

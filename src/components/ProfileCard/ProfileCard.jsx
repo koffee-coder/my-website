@@ -1,12 +1,26 @@
-import React, { useEffect, useRef, useCallback } from "react";
+import React, { useEffect, useRef, useCallback, useState } from "react";
 import "./ProfileCard.css";
 
 const ProfileCardComponent = ({ avatarUrl, name = "PRATYOSH DESARAJU", title = "Senior Engineer", status = "Online" }) => {
   const wrapRef = useRef(null);
   const cardRef = useRef(null);
+  const [isDark, setIsDark] = useState(document.body?.getAttribute('data-theme') === 'dark');
 
-  // FIXED: Read theme DIRECTLY from body data-theme attribute
-  const isDark = document.body?.getAttribute('data-theme') === 'dark';
+  // Listen for theme changes
+  useEffect(() => {
+    const updateTheme = () => {
+      setIsDark(document.body?.getAttribute('data-theme') === 'dark');
+    };
+
+    // Check theme on mount
+    updateTheme();
+
+    // Listen for changes to data-theme attribute
+    const observer = new MutationObserver(updateTheme);
+    observer.observe(document.body, { attributes: true, attributeFilter: ['data-theme'] });
+
+    return () => observer.disconnect();
+  }, []);
 
   // 3D tilt logic
   const handlePointerMove = useCallback((event) => {
