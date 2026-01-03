@@ -268,8 +268,8 @@ const mapContainerStyle = {
 
 const homeIconContainerStyle = {
   position: "absolute",
-  top: "360px",    // Fixed pixel value for Austin's latitude
-  left: "360px",   // Fixed pixel value for Austin's longitude  
+  top: "400px",    // Fixed pixel value for Austin's latitude
+  left: "380px",   // Fixed pixel value for Austin's longitude  
   transform: "translate(-50%, -50%)",
   zIndex: 10,
   pointerEvents: "none",
