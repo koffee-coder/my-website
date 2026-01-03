@@ -41,6 +41,7 @@ const Bio = ({ theme = "dark" }) => {
   ];
 
   const [hoveredStep, setHoveredStep] = useState(null);
+  const [hoveredHome, setHoveredHome] = useState(false);
 
   const timelineBorderColor = isDark ? "#ffffff" : "#333";
   const timelineTextColor = isDark ? "#bbb" : "#666";
@@ -143,8 +144,17 @@ const Bio = ({ theme = "dark" }) => {
               height={500}
             />
             {/* Home Icon positioned at Austin, TX */}
-            <div style={homeIconContainerStyle}>
+            <div 
+              style={homeIconContainerStyle}
+              onMouseEnter={() => setHoveredHome(true)}
+              onMouseLeave={() => setHoveredHome(false)}
+            >
               <FaHome style={homeIconStyle(isDark)} />
+              {hoveredHome && (
+                <div style={homeTooltipStyle(isDark)}>
+                  Leander, TX
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -268,20 +278,34 @@ const mapContainerStyle = {
 
 const homeIconContainerStyle = {
   position: "absolute",
-  top: "400px",    // Fixed pixel value for Austin's latitude
-  left: "380px",   // Fixed pixel value for Austin's longitude  
+  top: "385px",
+  left: "360px",
   transform: "translate(-50%, -50%)",
   zIndex: 10,
-  pointerEvents: "none",
+  pointerEvents: "auto",
+  cursor: "pointer",
 };
-
-
-
 
 const homeIconStyle = (isDark) => ({
   fontSize: "24px",
   color: "#FF0000",
   filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.5))",
+});
+
+const homeTooltipStyle = (isDark) => ({
+  position: "absolute",
+  top: "-35px",
+  left: "50%",
+  transform: "translateX(-50%)",
+  backgroundColor: isDark ? "rgba(253, 181, 21, 0.95)" : "rgba(253, 181, 21, 0.9)",
+  color: isDark ? "#000" : "#000",
+  padding: "6px 12px",
+  borderRadius: "6px",
+  fontSize: "14px",
+  fontWeight: "500",
+  whiteSpace: "nowrap",
+  boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
+  pointerEvents: "none",
 });
 
 export default Bio;
