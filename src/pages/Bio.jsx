@@ -1,5 +1,7 @@
-// Bio.jsx - Clean: No title, no empty box, just timeline
+// Bio.jsx - Clean: No title, no empty box, just timeline + USA Map
 import React, { useState } from "react";
+import USAMap from "react-usa-map";
+import { FaHome } from "react-icons/fa";
 import moveUSAImg from "../assets/move_usa.png";
 import mastersImg from "../assets/masters.png";
 import engineerImg from "../assets/engineer.png";
@@ -13,22 +15,29 @@ const Bio = ({ theme = "dark" }) => {
       year: "2013",
       text: "Moved to USA in 2013",
       image: moveUSAImg,
-      description: "Moved to USA in 2013 to pursue higher education and career opportunities",
+      description: "Right after my Bachelors, moved here to complete my Masters",
     },
     {
       id: 2,
       year: "2015",
       text: "Completed Masters in Computer Science",
       image: mastersImg,
-      description: "Master's degree from a top university with focus on AI and Data Science",
+      description: "Completed my Masters in Computer Science from University of Central Missouri",
     },
     {
       id: 3,
       year: "2015",
       text: "Started working as an Engineer",
       image: engineerImg,
-      description: "Began professional career building scalable web applications and ML systems",
+      description: "Began my professional career right after my masters",
     },
+    {
+      id: 4,
+      year: "2026",
+      text: "Currently focused on all things AI",
+      image: engineerImg,
+      description: "Currently focused on all things AI",
+    }
   ];
 
   const [hoveredStep, setHoveredStep] = useState(null);
@@ -45,6 +54,23 @@ const Bio = ({ theme = "dark" }) => {
     : "rgba(253, 181, 21, 0.2)";
   const descTextColor = isDark ? "#fff" : "#1a1a1a";
 
+  // Map customization
+  const mapConfig = {
+    TX: {
+      fill: "#FDB515",
+    },
+    DC1: {
+      fill: isDark ? "#333" : "#e0e0e0",
+    },
+    DC2: {
+      fill: isDark ? "#333" : "#e0e0e0",
+    }
+  };
+
+  const mapHandler = (event) => {
+    console.log(event.target.dataset.name);
+  };
+
   return (
     <div 
       style={{
@@ -60,7 +86,7 @@ const Bio = ({ theme = "dark" }) => {
         boxSizing: "border-box",
       }}
     >
-      {/* Timeline - Original styling preserved */}
+      {/* Timeline Section */}
       <section style={containerStyle(isDark)} aria-label="A quick bio">
         <h2 style={headingStyle(isDark)}>Quick Bio</h2>
         <div style={timelineStyle(timelineBorderColor)}>
@@ -92,6 +118,37 @@ const Bio = ({ theme = "dark" }) => {
           ))}
         </div>
       </section>
+
+      {/* USA Map Section */}
+      <section style={containerStyle(isDark)} aria-label="Current Location">
+        <h2 style={headingStyle(isDark)}>Where I Live</h2>
+        <div style={mapContainerStyle}>
+          <style>
+            {`
+              #DC2 {
+                fill: ${isDark ? "#333" : "#e0e0e0"} !important;
+                stroke: ${isDark ? "#333" : "#e0e0e0"} !important;
+              }
+              #DC1 {
+                fill: ${isDark ? "#333" : "#e0e0e0"} !important;
+              }
+            `}
+          </style>
+          <div style={{ position: "relative" }}>
+            <USAMap 
+              customize={mapConfig}
+              onClick={mapHandler}
+              defaultFill={isDark ? "#333" : "#e0e0e0"}
+              width={800}
+              height={500}
+            />
+            {/* Home Icon positioned at Austin, TX */}
+            <div style={homeIconContainerStyle}>
+              <FaHome style={homeIconStyle(isDark)} />
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
@@ -104,6 +161,7 @@ const containerStyle = (isDark) => ({
   boxSizing: "border-box",
   display: "flex",
   flexDirection: "column",
+  marginBottom: "60px",
 });
 
 const headingStyle = (isDark) => ({
@@ -199,6 +257,30 @@ const descriptionTextStyle = (color) => ({
   fontSize: "0.85rem",
   lineHeight: "1.5",
   margin: 0,
+});
+
+const mapContainerStyle = {
+  width: "100%",
+  maxWidth: "800px",
+  margin: "40px auto 0",
+  padding: "20px",
+};
+
+const homeIconContainerStyle = {
+  position: "absolute",
+  top: "79%",
+  left: "45%",
+  transform: "translate(-50%, -50%)",
+  zIndex: 10,
+  pointerEvents: "none",
+};
+
+
+
+const homeIconStyle = (isDark) => ({
+  fontSize: "24px",
+  color: "#FF0000",
+  filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.5))",
 });
 
 export default Bio;
