@@ -350,5 +350,4 @@ const Contact = ({ theme = "dark" }) => {
     </div>
   );
 };
-//re_cB439bUb_44d9ydXYEZeHmQPLXVFGMWLo
 export default Contact;
