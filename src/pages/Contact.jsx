@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { TiSocialLinkedinCircular } from "react-icons/ti";
 import { AiFillMediumCircle } from "react-icons/ai";
+import { MdContentCopy, MdCheck } from "react-icons/md"; // Add MdCheck for checkmark
 
 const Contact = ({ theme = "dark" }) => {
   const [formData, setFormData] = useState({
@@ -78,15 +79,15 @@ const Contact = ({ theme = "dark" }) => {
         maxWidth: "1200px",
         margin: "0 auto",
       }}>
-        {/* Header */}
+        {/* Header - Get in Touch */}
         <div style={{
           textAlign: "center",
-          marginBottom: "60px",
+          marginBottom: "40px",
         }}>
           <h1 style={{
             fontSize: "clamp(2.5rem, 5vw, 4rem)",
             fontWeight: "700",
-            marginBottom: "20px",
+            marginBottom: "30px",
             background: isDark 
               ? "linear-gradient(135deg, #00aaff 0%, #00ff88 100%)"
               : "linear-gradient(135deg, #003262 0%, #FDB515 100%)",
@@ -94,26 +95,112 @@ const Contact = ({ theme = "dark" }) => {
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
           }}>
-            Let's Connect
+            Get in Touch
           </h1>
-          <p style={{
-            fontSize: "1.2rem",
-            opacity: 0.8,
-            maxWidth: "600px",
-            margin: "0 auto",
+
+          {/* Email */}
+          <div style={{ marginBottom: "25px" }}>
+            <div style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "10px",
+              position: "relative",
+            }}>
+              <a
+                href="mailto:contact@pratyoshdesaraju.com"
+                style={{
+                  color: isDark ? "#00aaff" : "#003262",
+                  textDecoration: "none",
+                  fontSize: "1.2rem",
+                  fontWeight: "500",
+                }}
+              >
+                contact@pratyoshdesaraju.com
+              </a>
+              <button
+                onClick={handleEmailCopy}
+                style={{
+                  background: showCopied 
+                    ? (isDark ? "#10b981" : "#059669")
+                    : "transparent",
+                  border: "none",
+                  color: showCopied ? "#fff" : textColor,
+                  cursor: "pointer",
+                  fontSize: "1.3rem",
+                  padding: "8px",
+                  display: "flex",
+                  alignItems: "center",
+                  borderRadius: "6px",
+                  transition: "all 0.3s ease",
+                  transform: showCopied ? "scale(1.1)" : "scale(1)",
+                }}
+                title={showCopied ? "Copied!" : "Copy email"}
+              >
+                {showCopied ? <MdCheck /> : <MdContentCopy />}
+              </button>
+              
+              {/* Copied notification popup */}
+              {showCopied && (
+                <div style={{
+                  position: "absolute",
+                  top: "-40px",
+                  right: "calc(50% - 140px)",
+                  background: isDark ? "#10b981" : "#059669",
+                  color: "#fff",
+                  padding: "8px 16px",
+                  borderRadius: "8px",
+                  fontSize: "0.9rem",
+                  fontWeight: "600",
+                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+                  animation: "slideDown 0.3s ease",
+                  zIndex: 10,
+                }}>
+                  ✓ Copied to clipboard!
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Social Media */}
+          <div style={{
+            display: "flex",
+            gap: "15px",
+            justifyContent: "center",
+            marginBottom: "20px",
           }}>
-            Have a question or want to work together? Feel free to reach out!
-          </p>
+            <a
+              href="https://www.linkedin.com/in/pratyosh"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: textColor,
+                fontSize: "2.5rem",
+                transition: "all 0.3s ease",
+              }}
+            >
+              <TiSocialLinkedinCircular />
+            </a>
+            <a
+              href="https://medium.com/@pratyosh.desaraju/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: textColor,
+                fontSize: "2.5rem",
+                transition: "all 0.3s ease",
+              }}
+            >
+              <AiFillMediumCircle />
+            </a>
+          </div>
         </div>
 
-        {/* Contact Grid */}
+        {/* Contact Form - Single centered box */}
         <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-          gap: "40px",
-          marginBottom: "60px",
+          maxWidth: "600px",
+          margin: "0 auto",
         }}>
-          {/* Contact Form */}
           <div style={{
             background: bgColor,
             padding: "40px",
@@ -121,14 +208,6 @@ const Contact = ({ theme = "dark" }) => {
             border: `1px solid ${borderColor}`,
             backdropFilter: "blur(10px)",
           }}>
-            <h2 style={{
-              fontSize: "2rem",
-              marginBottom: "30px",
-              fontWeight: "600",
-            }}>
-              Send a Message
-            </h2>
-
             <form onSubmit={handleSubmit}>
               <div style={{ marginBottom: "20px" }}>
                 <label style={{
@@ -248,106 +327,24 @@ const Contact = ({ theme = "dark" }) => {
               )}
             </form>
           </div>
-
-          {/* Contact Info */}
-          <div style={{
-            background: bgColor,
-            padding: "40px",
-            borderRadius: "20px",
-            border: `1px solid ${borderColor}`,
-            backdropFilter: "blur(10px)",
-          }}>
-            <h2 style={{
-              fontSize: "2rem",
-              marginBottom: "30px",
-              fontWeight: "600",
-            }}>
-              Get in Touch
-            </h2>
-
-            <div style={{ marginBottom: "30px" }}>
-              <h3 style={{
-                fontSize: "1.2rem",
-                marginBottom: "10px",
-                fontWeight: "600",
-              }}>
-                Email
-              </h3>
-              <div style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-              }}>
-                <a
-                  href="mailto:contact@pratyoshdesaraju.com"
-                  style={{
-                    color: isDark ? "#00aaff" : "#003262",
-                    textDecoration: "none",
-                    fontSize: "1.1rem",
-                  }}
-                >
-                  contact@pratyoshdesaraju.com
-                </a>
-                <button
-                  onClick={handleEmailCopy}
-                  style={{
-                    padding: "6px 12px",
-                    background: inputBgColor,
-                    border: `1px solid ${inputBorderColor}`,
-                    borderRadius: "6px",
-                    color: textColor,
-                    cursor: "pointer",
-                    fontSize: "0.9rem",
-                    transition: "all 0.3s ease",
-                  }}
-                >
-                  {showCopied ? "Copied!" : "Copy"}
-                </button>
-              </div>
-            </div>
-
-            <div style={{ marginBottom: "30px" }}>
-              <h3 style={{
-                fontSize: "1.2rem",
-                marginBottom: "10px",
-                fontWeight: "600",
-              }}>
-                Social Media
-              </h3>
-              <div style={{
-                display: "flex",
-                gap: "15px",
-              }}>
-                <a
-                  href="https://linkedin.com/in/yourprofile"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    color: textColor,
-                    fontSize: "2.5rem",
-                    transition: "all 0.3s ease",
-                  }}
-                >
-                  <TiSocialLinkedinCircular />
-                </a>
-                <a
-                  href="https://medium.com/@yourprofile"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    color: textColor,
-                    fontSize: "2.5rem",
-                    transition: "all 0.3s ease",
-                  }}
-                >
-                  <AiFillMediumCircle />
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
+
+      {/* Add CSS animation for the popup */}
+      <style>{`
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </div>
   );
 };
+
 export default Contact;
