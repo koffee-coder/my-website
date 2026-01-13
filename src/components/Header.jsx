@@ -145,7 +145,7 @@ export default function Header({ theme = "dark", onToggleTheme }) {
   );
 }
 
-// Rest of styles unchanged...
+// Styles
 const headerStyle = (isDark) => ({
   display: "flex",
   justifyContent: "center",
@@ -155,9 +155,13 @@ const headerStyle = (isDark) => ({
   position: "fixed",
   width: "100%",
   top: 0,
-  zIndex: 10,
-  backgroundColor: "transparent",
+  zIndex: 100,
+  backgroundColor: isDark 
+    ? "rgba(26, 26, 26, 0.85)" 
+    : "rgba(255, 255, 255, 0.85)",
+  backdropFilter: "blur(10px)",
   color: isDark ? "#ffffff" : "#000000",
+  borderBottom: `1px solid ${isDark ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.1)"}`,
 });
 
 const logoLinkStyle = {
