@@ -66,23 +66,23 @@ function Home({ theme }) {
             className="text-2xl mb-6"
           />
 
-          <BlurText
+          {/* <BlurText
             text="Check out the work or bio to learn more about me."
             delay={40}
             stepDuration={0.18}
             animateBy="words"
             direction="top"
             className="text-2xl mb-6"
-          />
+          /> */}
 
-          <BlurText
+          {/* <BlurText
             text="You can also connect with me on LinkedIn or read what I have been writing on Medium using the links below."
             delay={40}
             stepDuration={0.18}
             animateBy="words"
             direction="top"
             className="text-2xl"
-          />
+          /> */}
         </div>
       </div>
 
