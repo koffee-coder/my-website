@@ -1,4 +1,4 @@
-// Bio.jsx - Clean: No title, no empty box, just timeline + USA Map
+// Bio.jsx - Timeline and Map side by side
 import React, { useState } from "react";
 import USAMap from "react-usa-map";
 import { FaHome } from "react-icons/fa";
@@ -8,35 +8,31 @@ import engineerImg from "../assets/engineer.png";
 
 const Bio = ({ theme = "dark" }) => {
   const isDark = theme === "dark";
-  
+
   const steps = [
     {
       id: 1,
       year: "2013",
       text: "Moved to USA in 2013",
       image: moveUSAImg,
-      description: "Right after my Bachelors, moved here to complete my Masters",
     },
     {
       id: 2,
       year: "2015",
       text: "Completed Masters in Computer Science",
       image: mastersImg,
-      description: "Completed my Masters in Computer Science from University of Central Missouri",
     },
     {
       id: 3,
       year: "2015",
       text: "Started working as an Engineer",
       image: engineerImg,
-      description: "Began my professional career right after my masters",
     },
     {
       id: 4,
       year: "2026",
       text: "Currently focused on all things AI",
       image: engineerImg,
-      description: "Currently focused on all things AI",
     }
   ];
 
@@ -47,13 +43,6 @@ const Bio = ({ theme = "dark" }) => {
   const timelineTextColor = isDark ? "#bbb" : "#666";
   const yearColor = "#FDB515";
   const circleInactiveColor = isDark ? "#555" : "#ccc";
-  const descBgColor = isDark 
-    ? "rgba(253, 181, 21, 0.1)" 
-    : "rgba(253, 181, 21, 0.05)";
-  const descBorderColor = isDark 
-    ? "rgba(253, 181, 21, 0.3)" 
-    : "rgba(253, 181, 21, 0.2)";
-  const descTextColor = isDark ? "#fff" : "#1a1a1a";
 
   // Map customization
   const mapConfig = {
@@ -87,91 +76,104 @@ const Bio = ({ theme = "dark" }) => {
         boxSizing: "border-box",
       }}
     >
-      {/* Timeline Section */}
-      <section style={containerStyle(isDark)} aria-label="A quick bio">
-        <h2 style={headingStyle(isDark)}>Quick Bio</h2>
-        <div style={timelineStyle(timelineBorderColor)}>
-          {steps.map((step) => (
-            <div
-              key={step.id}
-              style={stepContainerStyle}
-              onMouseEnter={() => setHoveredStep(step.id)}
-              onMouseLeave={() => setHoveredStep(null)}
-            >
-              {/* Year on the left side of the line */}
-              <div style={yearStyle(yearColor)}>{step.year}</div>
-              
-              <div style={stepStyle(timelineTextColor)}>
-                <img src={step.image} alt="" style={imageStyle} />
-                <div style={textWrapperStyle}>
-                  <div style={circleStyle(hoveredStep === step.id, circleInactiveColor)} />
-                  <p style={textStyle(timelineTextColor)}>{step.text}</p>
+      {/* Side-by-side container */}
+      <div style={sideBySideContainerStyle}>
+        {/* Timeline Section - LEFT */}
+        <section style={timelineSectionStyle(isDark)} aria-label="A quick bio">
+          <h2 style={headingStyle(isDark)}>Quick Bio</h2>
+          <div style={timelineStyle(timelineBorderColor)}>
+            {steps.map((step) => (
+              <div
+                key={step.id}
+                style={stepContainerStyle}
+                onMouseEnter={() => setHoveredStep(step.id)}
+                onMouseLeave={() => setHoveredStep(null)}
+              >
+                {/* Year on the left side of the line */}
+                <div style={yearStyle(yearColor)}>{step.year}</div>
+
+                <div style={stepStyle(timelineTextColor)}>
+                  <img src={step.image} alt="" style={imageStyle} />
+                  <div style={textWrapperStyle}>
+                    <div style={circleStyle(hoveredStep === step.id, circleInactiveColor)} />
+                    <p style={textStyle(timelineTextColor)}>{step.text}</p>
+                  </div>
                 </div>
               </div>
-              
-              {/* Hover Description */}
-              {hoveredStep === step.id && (
-                <div style={descriptionStyle(descBgColor, descBorderColor)}>
-                  <p style={descriptionTextStyle(descTextColor)}>{step.description}</p>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
 
-      {/* USA Map Section */}
-      <section style={containerStyle(isDark)} aria-label="Current Location">
-        <h2 style={headingStyle(isDark)}>Where I Live</h2>
-        <div style={mapContainerStyle}>
-          <style>
-            {`
-              #DC2 {
-                fill: ${isDark ? "#333" : "#e0e0e0"} !important;
-                stroke: ${isDark ? "#333" : "#e0e0e0"} !important;
-              }
-              #DC1 {
-                fill: ${isDark ? "#333" : "#e0e0e0"} !important;
-              }
-            `}
-          </style>
-          <div style={{ position: "relative" }}>
-            <USAMap 
-              customize={mapConfig}
-              onClick={mapHandler}
-              defaultFill={isDark ? "#333" : "#e0e0e0"}
-              width={800}
-              height={500}
-            />
-            {/* Home Icon positioned at Austin, TX */}
-            <div 
-              style={homeIconContainerStyle}
-              onMouseEnter={() => setHoveredHome(true)}
-              onMouseLeave={() => setHoveredHome(false)}
-            >
-              <FaHome style={homeIconStyle(isDark)} />
-              {hoveredHome && (
-                <div style={homeTooltipStyle(isDark)}>
-                  Leander, TX
-                </div>
-              )}
+        {/* USA Map Section - RIGHT */}
+        <section style={mapSectionStyle(isDark)} aria-label="Current Location">
+          <h2 style={headingStyle(isDark)}>Where I Live</h2>
+          <div style={mapContainerStyle}>
+            <style>
+              {`
+                #DC2 {
+                  fill: ${isDark ? "#333" : "#e0e0e0"} !important;
+                  stroke: ${isDark ? "#333" : "#e0e0e0"} !important;
+                }
+                #DC1 {
+                  fill: ${isDark ? "#333" : "#e0e0e0"} !important;
+                }
+              `}
+            </style>
+            <div style={{ position: "relative" }}>
+              <USAMap 
+                customize={mapConfig}
+                onClick={mapHandler}
+                defaultFill={isDark ? "#333" : "#e0e0e0"}
+                width={500}
+                height={320}
+              />
+              {/* Home Icon positioned at Austin, TX */}
+              <div 
+                style={homeIconContainerStyle}
+                onMouseEnter={() => setHoveredHome(true)}
+                onMouseLeave={() => setHoveredHome(false)}
+              >
+                <FaHome style={homeIconStyle(isDark)} />
+                {hoveredHome && (
+                  <div style={homeTooltipStyle(isDark)}>
+                    Leander, TX
+                  </div>
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 };
 
-// Theme-aware styles + original styling preserved
-const containerStyle = (isDark) => ({
+// New style for side-by-side container
+const sideBySideContainerStyle = {
   width: "100%",
-  maxWidth: "1200px",
-  padding: "0 2rem",
-  boxSizing: "border-box",
+  maxWidth: "1400px",
+  display: "flex",
+  flexDirection: "row",
+  gap: "40px",
+  alignItems: "flex-start",
+  justifyContent: "center",
+  flexWrap: "wrap",
+};
+
+// Timeline section style
+const timelineSectionStyle = (isDark) => ({
+  flex: "1 1 600px",
+  minWidth: "500px",
   display: "flex",
   flexDirection: "column",
-  marginBottom: "60px",
+});
+
+// Map section style
+const mapSectionStyle = (isDark) => ({
+  flex: "1 1 500px",
+  minWidth: "400px",
+  display: "flex",
+  flexDirection: "column",
 });
 
 const headingStyle = (isDark) => ({
@@ -191,7 +193,7 @@ const timelineStyle = (borderColor) => ({
   marginTop: "40px",
   height: "400px",
   marginLeft: "80px",
-  maxWidth: "1000px",
+  maxWidth: "600px",
 });
 
 const stepContainerStyle = {
@@ -246,40 +248,17 @@ const textStyle = (color) => ({
   margin: 0,
 });
 
-const descriptionStyle = (bgColor, borderColor) => ({
-  position: "absolute",
-  left: "550px",
-  top: "50%",
-  transform: "translateY(-50%)",
-  backgroundColor: bgColor,
-  border: `1px solid ${borderColor}`,
-  borderRadius: "8px",
-  padding: "15px 20px",
-  maxWidth: "400px",
-  zIndex: 10,
-  animation: "fadeIn 0.3s ease",
-  boxShadow: "0 8px 32px rgba(0,0,0,0.2)",
-  backdropFilter: "blur(10px)",
-});
-
-const descriptionTextStyle = (color) => ({
-  color,
-  fontSize: "0.85rem",
-  lineHeight: "1.5",
-  margin: 0,
-});
-
 const mapContainerStyle = {
   width: "100%",
-  maxWidth: "800px",
+  maxWidth: "500px",
   margin: "40px auto 0",
   padding: "20px",
 };
 
 const homeIconContainerStyle = {
   position: "absolute",
-  top: "385px",
-  left: "360px",
+  top: "245px",
+  left: "225px",
   transform: "translate(-50%, -50%)",
   zIndex: 10,
   pointerEvents: "auto",
