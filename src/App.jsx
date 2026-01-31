@@ -12,6 +12,7 @@ import BlurText from './components/BlurText.jsx';
 import Work from './pages/Work';
 import Bio from './pages/Bio';
 import Contact from './pages/Contact';
+import NotFound from './pages/NotFound';
 import './App.css';
 import './index.css';
 import pratyoshPic from './assets/pratyosh_desaraju.png';
@@ -338,6 +339,7 @@ function App() {
           <Route path="/work" element={<Work theme={theme} />} />
           <Route path="/bio" element={<Bio theme={theme} />} />
           <Route path="/contact" element={<Contact theme={theme} />} />
+          <Route path="*" element={<NotFound theme={theme} />} />
         </Routes>
       </main>
 
