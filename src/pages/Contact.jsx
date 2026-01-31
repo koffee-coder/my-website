@@ -88,12 +88,7 @@ const Contact = ({ theme = "dark" }) => {
             fontSize: "clamp(2.5rem, 5vw, 4rem)",
             fontWeight: "700",
             marginBottom: "30px",
-            background: isDark 
-              ? "linear-gradient(135deg, #00aaff 0%, #00ff88 100%)"
-              : "linear-gradient(135deg, #003262 0%, #FDB515 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
+            color: isDark ? "#ffffff" : "#003262",
           }}>
             Get in Touch
           </h1>
@@ -110,7 +105,7 @@ const Contact = ({ theme = "dark" }) => {
               <a
                 href="mailto:contact@pratyoshdesaraju.com"
                 style={{
-                  color: isDark ? "#00aaff" : "#003262",
+                  color: isDark ? "#ffffff" : "#003262",
                   textDecoration: "none",
                   fontSize: "1.2rem",
                   fontWeight: "500",
@@ -202,11 +197,8 @@ const Contact = ({ theme = "dark" }) => {
           margin: "0 auto",
         }}>
           <div style={{
-            background: bgColor,
             padding: "40px",
             borderRadius: "20px",
-            border: `1px solid ${borderColor}`,
-            backdropFilter: "blur(10px)",
           }}>
             <form onSubmit={handleSubmit}>
               <div style={{ marginBottom: "20px" }}>
@@ -226,7 +218,7 @@ const Contact = ({ theme = "dark" }) => {
                   style={{
                     width: "100%",
                     padding: "12px 16px",
-                    background: inputBgColor,
+                    background: "transparent",
                     border: `1px solid ${inputBorderColor}`,
                     borderRadius: "10px",
                     color: textColor,
@@ -254,7 +246,7 @@ const Contact = ({ theme = "dark" }) => {
                   style={{
                     width: "100%",
                     padding: "12px 16px",
-                    background: inputBgColor,
+                    background: "transparent",
                     border: `1px solid ${inputBorderColor}`,
                     borderRadius: "10px",
                     color: textColor,
@@ -282,7 +274,7 @@ const Contact = ({ theme = "dark" }) => {
                   style={{
                     width: "100%",
                     padding: "12px 16px",
-                    background: inputBgColor,
+                    background: "transparent",
                     border: `1px solid ${inputBorderColor}`,
                     borderRadius: "10px",
                     color: textColor,

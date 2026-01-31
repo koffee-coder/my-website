@@ -155,7 +155,7 @@ const headerStyle = (isDark) => ({
   position: "fixed",
   width: "100%",
   top: 0,
-  zIndex: 100,
+  zIndex: 50,
   backgroundColor: isDark 
     ? "rgba(26, 26, 26, 0.85)" 
     : "rgba(255, 255, 255, 0.85)",

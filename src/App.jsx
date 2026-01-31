@@ -1,8 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Particles from 'react-tsparticles';
 import { loadFull } from 'tsparticles';
-import Header from './components/Header';
+import styled from 'styled-components';
+import { TiSocialLinkedinCircular } from 'react-icons/ti';
+import { AiFillMediumCircle } from 'react-icons/ai';
+import { MdOutlineAlternateEmail } from 'react-icons/md';
 import Footer from './components/Footer';
 import ProfileCard from './components/ProfileCard/ProfileCard.jsx';
 import BlurText from './components/BlurText.jsx';
@@ -12,6 +15,127 @@ import Contact from './pages/Contact';
 import './App.css';
 import './index.css';
 import pratyoshPic from './assets/pratyosh_desaraju.png';
+
+const DockContainer = styled.div`
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+  padding: 12px 24px;
+  background: ${({ isDark }) => (isDark ? "rgba(0, 0, 0, 0.85)" : "rgba(255, 255, 255, 0.85)")};
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  z-index: 50;
+`;
+
+const DockItem = styled(Link)`
+  color: ${({ isDark }) => (isDark ? "#ffffff" : "#1a1a1a")};
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: rgba(253, 181, 21, 0.2);
+    color: #FDB515;
+    transform: scale(1.1);
+  }
+`;
+
+const ThemeToggleButton = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 8px;
+`;
+
+const ToggleTrack = styled.div`
+  width: 44px;
+  height: 24px;
+  background: ${({ isDark }) => (isDark ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.2)")};
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid ${({ isDark }) => (isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)")};
+`;
+
+const ToggleThumb = styled.div`
+  width: 20px;
+  height: 20px;
+  background: ${({ isDark }) => (isDark ? "#ffffff" : "#1a1a1a")};
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: ${({ isDark }) => (isDark ? "2px" : "22px")};
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border: 2px solid ${({ isDark }) => (isDark ? "#FDB515" : "#8B5CF6")};
+`;
+
+const ToggleLabel = styled.span`
+  font-size: 0.85rem;
+  font-weight: 500;
+  opacity: 0.9;
+  white-space: nowrap;
+  color: ${({ isDark }) => (isDark ? "#ffffff" : "#1a1a1a")};
+`;
+
+const BottomDockContainer = styled.div`
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+  padding: 12px 24px;
+  background: ${({ isDark }) => (isDark ? "rgba(0, 0, 0, 0.85)" : "rgba(255, 255, 255, 0.85)")};
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  z-index: 50;
+`;
+
+const SocialIcon = styled.a`
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${({ isDark }) => (isDark ? "#ffffff" : "#000000")};
+  text-decoration: none;
+  
+  &:hover {
+    color: #FDB515;
+    transform: scale(1.15);
+  }
+`;
+
+const EmailButton = styled.button`
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: ${({ isDark }) => (isDark ? "#ffffff" : "#000000")};
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  &:hover {
+    color: #FDB515;
+    transform: scale(1.15);
+  }
+`;
 
 function Home({ theme }) {
   const isDark = theme === 'dark';
@@ -133,7 +257,7 @@ function App() {
 
   return (
     <Router>
-      <div className="particles-container" style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
+      <div className="particles-container" style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, pointerEvents: 'none' }}>
         <Particles
           key={theme}
           id="tsparticles"
@@ -194,7 +318,19 @@ function App() {
         />
       </div>
 
-      <Header theme={theme} onToggleTheme={toggleTheme} />
+      <DockContainer isDark={isDark}>
+        <DockItem isDark={isDark} to="/">Home</DockItem>
+        <DockItem isDark={isDark} to="/work">Work</DockItem>
+        <DockItem isDark={isDark} to="/bio">Bio</DockItem>
+        <DockItem isDark={isDark} to="/contact">Contact</DockItem>
+        <div style={{ width: '1px', background: isDark ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.2)', margin: '0 8px' }}></div>
+        <ThemeToggleButton onClick={toggleTheme} title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} mode`}>
+          <ToggleLabel isDark={isDark}>{theme === 'dark' ? 'Dark' : 'Light'}</ToggleLabel>
+          <ToggleTrack isDark={theme === 'dark'}>
+            <ToggleThumb isDark={theme === 'dark'} />
+          </ToggleTrack>
+        </ThemeToggleButton>
+      </DockContainer>
 
       <main style={{ position: 'relative', zIndex: 5, padding: '120px 0 140px', minHeight: '100vh', boxSizing: 'border-box' }}>
         <Routes>
@@ -205,7 +341,36 @@ function App() {
         </Routes>
       </main>
 
-      <Footer theme={theme} onToggleTheme={toggleTheme} />
+      <BottomDockContainer isDark={isDark}>
+        <SocialIcon 
+          isDark={isDark}
+          href="https://linkedin.com/in/pratyosh" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          aria-label="LinkedIn Profile"
+        >
+          <TiSocialLinkedinCircular />
+        </SocialIcon>
+        <SocialIcon 
+          isDark={isDark}
+          href="https://medium.com/@pratyosh.desaraju" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          aria-label="Medium Profile"
+        >
+          <AiFillMediumCircle />
+        </SocialIcon>
+        <EmailButton 
+          isDark={isDark}
+          onClick={() => {
+            navigator.clipboard.writeText("your-email@example.com");
+            alert("Email copied to clipboard!");
+          }}
+          aria-label="Copy Email"
+        >
+          <MdOutlineAlternateEmail />
+        </EmailButton>
+      </BottomDockContainer>
     </Router>
   );
 }
